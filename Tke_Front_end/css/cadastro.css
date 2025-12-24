@@ -1,0 +1,261 @@
+/* --- RESET E BASE --- */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.cadastro-container {
+  width: 90%;
+  /* max-width: 480px; */
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* --- GRID DO FORMULÁRIO --- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* --- BOTÕES --- */
+.button-row {
+  display: block;
+  margin-top: 25px;
+}
+
+.btn-salvar {
+  flex: 1;
+  background: #0066ff;
+  padding: 12px 10px;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btn-cancelar {
+  flex: 1;
+  background: #e5e5e5;
+  padding: 12px 10px;
+  margin-top: 10px;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.sugestao-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sugestao-principal {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#sugestoesFilial {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 96.4%;
+  background-color: #212121;
+  border: 1px solid #303030;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  z-index: 1000;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#sugestoesFilial.ativo {
+  display: block;
+}
+
+.sugestao-item {
+  display: flex;
+  align-items: center; 
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.sugestao-item:last-child {
+  border-bottom: none;
+}
+
+.sugestao-item:hover {
+  background-color: #a56060a9;
+}
+
+/* --- ANIMAÇÃO --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1080px) {
+
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+  }
+
+  h2 {
+    font-size: 7em;
+    font-weight: 900;
+  }
+
+  .form-group p {
+    font-size: 2em;
+    font-weight: 900;
+  }
+
+  .form-group input {
+    width: 95%;
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 50px;
+  }
+
+  .cadastro-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .sugestao-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sugestao-principal {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  #sugestoesFilial {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #212121;
+    border: 1px solid #303030;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  #sugestoesFilial.ativo {
+    display: block;
+  }
+
+  .sugestao-item {
+    display: flex;
+    align-items: center; 
+    padding: 20px 15px;
+    cursor: pointer;
+    font-size: 40px;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    transition: background 0.2s;
+  }
+
+  .sugestao-item:last-child {
+    border-bottom: none;
+  }
+
+  .sugestao-item:hover {
+    background-color: #a56060a9;
+  }
+
+  .button-row {
+    display: block;
+    margin-top: 25px;
+  }
+
+  .btn-salvar {
+    flex: 1;
+    background: #0066ff;
+    padding: 12px 10px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .btn-cancelar {
+    flex: 1;
+    background: #e5e5e5;
+    padding: 12px 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+  }
+}
