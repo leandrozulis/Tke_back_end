@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Sistema de Produtos</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <ul>
+      <li id="menuImportar" onclick="menuImportar()">📥 Importar</li>
+      <li id="menuExportar" onclick="menuExportar()">📤 Exportar</li>
+    </ul>
+  </nav>
+
+   <!-- Menus de Importar e Exportar dados -->
+  <div id="modalImportar" class="modal-importar">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModalImportar()">&times;</span>
+
+      <h2>Importar Arquivo</h2>
+
+      <form id="formImportar">
+        <label class="upload-box">
+          <input type="file" id="arquivoImportar" hidden onchange="mostrarArquivoSelecionado()">
+          <div class="upload-area" id="uploadArea">
+            ☁️ <br>
+            <strong id="uploadTexto">Clique para enviar</strong>
+          </div>
+        </label>
+
+        <button type="button" class="btn-importar" onclick="enviarExcel()">
+          IMPORTAR
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalExportar" class="modal-importar">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModalExportar()">&times;</span>
+
+      <h2 class="h2-exportar">Exportar dados em Excel</h2>
+
+      <p class="p-exportar">Clique no botão abaixo para exportar os dados.</p>
+
+      <button class="btn-exportar" onclick="exportarDados()">
+        EXPORTAR
+      </button>
+    </div>
+  </div>
+
+
+<div class="container">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="./file.png" alt="Logo">
+  </div>
+
+  <!-- CONSULTA -->
+  <div class="input-wrapper">
+    <label for="filialBusca">Filial:</label>
+    <input id="filialBusca" oninput="executarSugestoesFilial()" onfocus="executarSugestoesFilial()" placeholder="Selecione a filial..." autocomplete="off">
+    <div id="sugestoesFilial"></div>
+  </div>
+
+  <div>
+    <label for="referenciaBusca">Referência:</label>
+    <input id="referenciaBusca" onkeyup="buscarSugestoes()" autocomplete="off" placeholder="Informe uma referência...">
+  </div>
+
+  <div id="sugestoes" class="lista-sugestoes"></div>
+
+  <!-- BOTÕES PRINCIPAIS -->
+  <div class="button-row">
+    <button onclick="buscar()">Buscar</button>
+    <button id="btnCadastrar" onclick="abrirCadastro()">Cadastrar Produto</button>
+  </div>
+
+  <!-- TABELA DESKTOP -->
+  <table id="tabelaProdutos" class="tabela-desktop" style="display:none;">
+    <thead>
+      <tr>
+        <th>Filial</th>
+        <th>codigoGis</th>
+        <th>numeroMaterial</th>
+        <th>descricao</th>
+        <th>deposito</th>
+        <th>posicaoDeposito</th>
+        <th>hierarquiaProduto</th>
+        <th id="col-acoes">Ações</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- CARDS MOBILE -->
+  <div id="cardProdutos" class="card-container" style="display:none;"></div>
+
+  <!-- MODAL IMAGEM -->
+  <div id="imageModalBg" class="modal-bg">
+    <div id="imageModal" class="modal">
+      <span class="close-btn" onclick="fecharModalImagem()">&times;</span>
+      <div id="modalImageContent"></div>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIRMAR EXCLUSÃO -->
+  <div id="modalExcluir" class="modal-importar">
+    <div class="modal-content">
+      <h2>Confirmar exclusão</h2>
+      <p>Tem certeza que deseja excluir este produto?</p>
+
+      <div class="modal-actions">
+        <button class="btn-cancelar" onclick="fecharModalExcluir()">
+          Cancelar
+        </button>
+
+        <button class="btn-excluir" onclick="excluir()">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="js/config.js"></script>
+<script src="js/produtos/index.js"></script>
+<script src="js/UploadExcel/importar-excel.js"></script>
+<script src="js/UploadExcel/exportar-excel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/scripts/exibeSucesso.js"></script>
+<script src="./js/scripts/exibeAtencao.js"></script>
+<script src="./js/scripts/exibeErro.js"></script>
+
+</body>
+</html>

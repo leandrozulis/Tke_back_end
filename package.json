@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsup src/Tke_Front_end dist/",
+    "build": "tsc && xcopy Tke_Front_end dist\\public /E /I /Y",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "vercel-build": "tsc && xcopy Tke_Front_end dist\\public /E /I /Y"
   },
   "keywords": [],
   "author": "",

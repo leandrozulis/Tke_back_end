@@ -4,10 +4,6 @@
     {
       "src": "dist/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "Tke_Front_end/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -17,7 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/Tke_Front_end/index.html"
+      "dest": "/dist/public/index.html"
     }
   ]
 }
