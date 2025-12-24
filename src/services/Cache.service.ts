@@ -1,6 +1,6 @@
-import Redis from 'ioredis';
+import { Redis} from 'ioredis';
 class CacheService {
-  private redis: Redis;
+  private redis: any;
   constructor() {
     this.redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
   }

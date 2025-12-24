@@ -1,7 +1,7 @@
 import express from "express";
-import userRouter from "./userRouter";
-import productRouter from "./productRouter";
-import productImageRouter from "./productImageRouter";
+import userRouter from "./userRouter.js";
+import productRouter from "./productRouter.js";
+import productImageRouter from "./productImageRouter.js";
 
 const router = (app: express.Router) => {
   app.use("/", userRouter);

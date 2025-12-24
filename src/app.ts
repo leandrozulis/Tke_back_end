@@ -1,8 +1,10 @@
 import express from "express";
-import router from "./routes";
+import router from "./routes/index.js";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const app = express();
 
@@ -26,19 +28,19 @@ if (!fs.existsSync(imagesDir)) {
 
 app.use("/imagens", express.static(imagesDir));
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.use(express.static(path.join(__dirname, '..', 'Tke_Front_end')));
+
 router(app);
 
-app.get("/", (req, res) => {
-  res.json({ status: "ok", message: "API rodando" });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Tke_Front_end', 'index.html'));
 });
 
-// import bcrypt from 'bcrypt';
-// const password = 'Con@2025Tke'; // substitua
-// const saltRounds = 12;
-
-// bcrypt.hash(password, saltRounds, (err, hash) => {
-//   if (err) throw err;
-//   console.log('bcrypt hash:', hash);
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Tke_Front_end', 'index.html'));
+});
 
 export default app;

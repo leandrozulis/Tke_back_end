@@ -1,11 +1,11 @@
 import bcrypt from 'bcrypt';
-import UserService from '../../../services/User.service';
+import UserService from '../../../services/User.service.js';
 
 const userAuthService = new UserService()
 
 export async function authenticateUser(user: string, password: string) {
 
-  const findUser = await userAuthService.findByUsername(user);
+  const findUser: any = await userAuthService.findByUsername(user);
 
   const doesPasswordMatch = await bcrypt.compare(password, findUser.password);
 

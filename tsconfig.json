@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "noImplicitAny": true,
-    "outDir": "./build",
-    "noEmitOnError": true,
-    "types": ["node", "multer"],
-    "typeRoots": [
-      "./src/types",
-      "./node_modules/@types"
-    ]
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": ["node"]
   },
-  "include": ["./src/**/*", "src/server.ts"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

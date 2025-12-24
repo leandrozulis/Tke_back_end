@@ -1,18 +1,16 @@
-import ProductImageService from "../../../services/ProductImage.service";
+import ProductImageService from "../../../services/ProductImage.service.js";
 import { Request, Response } from "express";
-import ProductService from "../../../services/Product.service";
+import ProductService from "../../../services/Product.service.js";
 import fs from "fs";
 import path from "path";
-import { imagesDir } from "../../../app";
+import { imagesDir } from "../../../app.js";
 
 const productImageService = new ProductImageService();
 const productService = new ProductService();
 
 export async function updateImageFile(id: string, req: Request, res: Response) {
   try {
-    const oldImage = await productService.findById(id);
-
-    console.log(oldImage);
+    const oldImage: any = await productService.findById(id);
 
     const oldImageExists = oldImage.ProductImage.length > 0;
 
@@ -24,7 +22,7 @@ export async function updateImageFile(id: string, req: Request, res: Response) {
       }
     }
 
-    const file = req.file;
+    const file: any = req.file;
     const newName = `${Date.now()}-${file.originalname}`;
     const newFilePath = path.join(imagesDir, newName);
     fs.writeFileSync(newFilePath, file.buffer);
@@ -41,7 +39,7 @@ export async function updateImageFile(id: string, req: Request, res: Response) {
       message: oldImageExists ? "Imagem atualizada com sucesso" : "Imagem cadastrada com sucesso",
       image: result,
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('Erro detalhado no processo de atualização:', err);
     return res.status(500).json({
       error: 'Erro ao atualizar imagem',

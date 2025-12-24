@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import ProductService from "../../services/Product.service";
-import ProductImageService from "../../services/ProductImage.service";
-import cache from '../../services/Cache.service';
+import ProductService from "../../services/Product.service.js";
+import ProductImageService from "../../services/ProductImage.service.js";
+import cache from '../../services/Cache.service.js';
 
 import * as xlsx from "xlsx";
 
-import { removeImageFile } from "../Product-Image/service/removeImageProductFileLocal.service";
-import { CreateZodSchema } from "./DTO/create-product";
+import { removeImageFile } from "../Product-Image/service/removeImageProductFileLocal.service.js";
+import { CreateZodSchema } from "./DTO/create-product.js";
 
 const productService = new ProductService();
 const productImageService = new ProductImageService();
@@ -157,7 +157,7 @@ export default class ProductController {
       return res.status(200).json({
         message: "Produto atualizado com sucesso",
       });
-    } catch (error) {
+    } catch (error: any) {
       if (error.meta.target) {
         return res.status(400).json(
           {
@@ -238,7 +238,7 @@ export default class ProductController {
       };
 
       // Function Expression for object normalization
-      const normalizarObjeto = (obj: Record<string, any>) => {
+      const normalizarObjeto: any = (obj: Record<string, any>) => {
         const novo: Record<string, any> = {};
         for (const chave in obj) {
           if (Object.prototype.hasOwnProperty.call(obj, chave)) {
@@ -254,7 +254,7 @@ export default class ProductController {
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
       const data = xlsx.utils.sheet_to_json(sheet);
 
-      const dadosNormalizados = data.map(normalizarObjeto);
+      const dadosNormalizados: any = data.map(normalizarObjeto);
 
       let importados = 0;
 
@@ -296,7 +296,7 @@ export default class ProductController {
         return res.status(404).json({ error: "Nenhum dado para exportar" });
       }
 
-      const dadosFormatados = produtos.map(p => ({
+      const dadosFormatados = produtos.map((p: any) => ({
         Filial: p.filial,
         "Código GIS": p.codigoGis,
         "Número do Material": p.numeroMaterial,

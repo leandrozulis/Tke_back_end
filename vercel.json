@@ -8,8 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "/dist/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Tke_Front_end/index.html"
     }
   ]
 }

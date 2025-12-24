@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { authenticateUser } from "./service/authenticate.service";
-import { generateToken } from "../../utils/jwt";
+import { authenticateUser } from "./service/authenticate.service.js";
+import { generateToken } from "../../utils/jwt.js";
 
 export class UserController {
 
@@ -27,7 +27,7 @@ export class UserController {
         token
       });
 
-    } catch (error) {
+    } catch (error: any) {
       res.status(400).json({ error: error.message });
     }
 

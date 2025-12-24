@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import ProductImageService from "../../services/ProductImage.service";
-import { addImageFile } from "./service/addImageProductFileLocal.service";
-import { getImageFile } from "./service/getImageProductFileLocal.service";
-import { removeImageFile } from "./service/removeImageProductFileLocal.service";
-import { updateImageFile } from "./service/updateImageProductFileLocal.service";
+import ProductImageService from "../../services/ProductImage.service.js"
+import { addImageFile } from "./service/addImageProductFileLocal.service.js";
+import { getImageFile } from "./service/getImageProductFileLocal.service.js";
+import { removeImageFile } from "./service/removeImageProductFileLocal.service.js";
+import { updateImageFile } from "./service/updateImageProductFileLocal.service.js";
 
 const productImageService = new ProductImageService();
 

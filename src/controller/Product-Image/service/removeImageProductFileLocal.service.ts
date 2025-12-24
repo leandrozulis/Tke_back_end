@@ -1,7 +1,7 @@
-import ProductImageService from "../../../services/ProductImage.service";
+import ProductImageService from "../../../services/ProductImage.service.js";
 import fs from "fs";
 import path from "path";
-import { imagesDir } from "../../../app";
+import { imagesDir } from "../../../app.js";
 
 const productImageService = new ProductImageService();
 

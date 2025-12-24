@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import ProductService from "../../../services/Product.service";
-import ProductImageService from "../../../services/ProductImage.service";
+import ProductService from "../../../services/Product.service.js";
+import ProductImageService from "../../../services/ProductImage.service.js";
 import fs from "fs";
 import path from "path";
-import { imagesDir } from "../../../app";
+import { imagesDir } from "../../../app.js";
 
 const productImageService = new ProductImageService();
 const productService = new ProductService();
@@ -35,7 +35,7 @@ export async function addImageFile(id: string, req: Request, res: Response) {
       fileName
     });
 
-  } catch (err) {
+  } catch (err: any) {
     console.error('Erro detalhado no processo de upload:', err);
     return res.status(500).json({
       error: 'Erro ao enviar imagem',
