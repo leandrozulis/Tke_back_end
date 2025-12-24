@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "outDir": "./build",
+    "noEmitOnError": true,
+    "types": ["node", "multer"],
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ]
+  },
+  "include": ["./src/**/*", "src/server.ts"]
+}

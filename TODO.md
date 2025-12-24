@@ -1,0 +1,4 @@
+- [ ] Modify addImageProductFileLocal.service.ts to save images locally in src/imagens folder instead of uploading to Google Drive
+- [ ] Modify removeImageProductFileLocal.service.ts to delete images locally instead of from Google Drive
+- [ ] Modify updateImageProductFileLocal.service.ts to update images locally instead of using Google Drive
+- [ ] Test the changes to ensure images are saved and served correctly
