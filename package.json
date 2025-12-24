@@ -8,7 +8,7 @@
     "build": "tsc && xcopy Tke_Front_end dist\\public /E /I /Y",
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "vercel-build": "tsc && xcopy Tke_Front_end dist\\public /E /I /Y"
+    "vercel-build": "tsc && cp -R Tke_Front_end dist/public"
   },
   "keywords": [],
   "author": "",
