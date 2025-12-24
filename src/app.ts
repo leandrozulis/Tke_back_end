@@ -20,6 +20,15 @@ app.options("*", cors());
 
 app.use(express.json());
 
+// Serve static files from the public directory
+const publicPath = path.join(process.cwd(), 'dist', 'public');
+app.use(express.static(publicPath));
+
+// Handle SPA routing - serve index.html for any other route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 export const imagesDir = process.env.VERCEL ? "/tmp/imagens" : path.join(process.cwd(), "src", "imagens");
 
 if (!fs.existsSync(imagesDir)) {
